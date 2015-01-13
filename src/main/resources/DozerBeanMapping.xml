@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+          
+          
+<!-- Default configuration and will be overridden when specified at class or field levels -->          
+<configuration>
+    <date-format>MM/dd/yyyy HH:mm</date-format>
+     <variables>
+            <variable name="type_name">com.paypal.DozerMapping.Source
+            </variable>
+        </variables>
+  </configuration>
+
+<mapping wildcard="true">
+	<class-a>com.paypal.DozerMapping.Source</class-a>
+	<class-b>com.paypal.DozerMapping.Destination</class-b>
+	<field>
+		<a>nameTest</a>
+		<b>nam</b>
+	</field>
+</mapping>
+
+
+<mapping>
+	<class-a>com.paypal.refMapping.Person</class-a>
+	<class-b>com.paypal.refMapping.Employee</class-b>
+	<field copy-by-reference="true">
+		<a>PersonAddress</a>
+		<b>Address</b>
+	</field>
+	<field>
+		<a>name</a>
+		<b>empName</b>
+	</field>
+</mapping>
+
+<mapping>
+	<class-a>com.paypal.customGetSet.SourceCustom</class-a>
+	<class-b>com.paypal.customGetSet.DestinationCustom</class-b>
+	<field>
+		<a get-method="getSourceName">name</a>
+		<b set-method="setDestinationTemp">temp</b>
+	</field>
+</mapping>
+<!-- Inheritance Mapping -->
+<mapping>
+	<class-a>com.paypal.inheritanceDozer.SuperClass</class-a>
+	<class-b>com.paypal.inheritanceDozer.SuperClassPrime</class-b>
+	<field>
+		<a>superAttr</a>
+		<b>superAttrPrime</b>
+	</field>
+</mapping>
+
+<mapping>
+	<class-a>com.paypal.inheritanceDozer.SubClass1</class-a>
+	<class-b>com.paypal.inheritanceDozer.SubClass1Prime</class-b>
+	<field>
+		<a>sub1Attr</a>
+		<b>sub1PrimeAttr</b>
+	</field>
+</mapping>
+
+<mapping>
+	<class-a>com.paypal.inheritanceDozer.SubClass2</class-a>
+	<class-b>com.paypal.inheritanceDozer.SubClassPrime2</class-b>
+	<field>
+		<a>sub2Attr</a>
+		<b>sub2PrimeAttr</b>
+	</field>
+</mapping>
+
+<!--Inheritance Mapping ends  -->
+
+<mapping>
+	<class-a>com.paypal.DateMapping.StringWrapper</class-a>
+	<class-b>com.paypal.DateMapping.DateWrapper</class-b>
+	<field>
+		<a>dateString</a>
+		<b>date</b>
+	</field>
+</mapping>
+
+<mapping>
+	<class-a>com.paypal.customGetSet.AppleComputerWrapper</class-a>
+	<class-b>com.paypal.customGetSet.Computers</class-b>
+	<field>
+		<a>appleComputers</a>
+		<b set-method="addComputer" type = "iterate">computer</b>
+		<b-hint>com.paypal.customGetSet.AppleComputer</b-hint>
+	</field>
+</mapping>
+
+</mappings>
